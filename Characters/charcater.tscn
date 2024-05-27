@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://divcqf24uqntb"]
+
+[ext_resource type="Script" path="res://Characters/Charcater.gd" id="1_475pk"]
+[ext_resource type="Resource" uid="uid://c2a5tkehamq2n" path="res://Archetypes/Warrior.tres" id="2_5mp02"]
+[ext_resource type="Texture2D" uid="uid://cqwd3s3l2kiqj" path="res://Assets/Character Sprites 32x32/Male/Male 01-2.png" id="4_ssjh5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdygp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rq7t"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkypq"]
+bg_color = Color(0.862745, 0.0901961, 0.117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ko3e5"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re6at"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciu68"]
+bg_color = Color(0, 0.501961, 0.847059, 1)
+
+[node name="Charcater" type="CharacterBody2D"]
+script = ExtResource("1_475pk")
+archetype = ExtResource("2_5mp02")
+max_hp = 10
+max_mp = 8
+cur_mp = 8
+combat_actions = [null, null]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("4_ssjh5")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+shape = SubResource("CapsuleShape2D_fdygp")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = -75.0
+offset_top = -130.0
+offset_right = 75.0
+offset_bottom = -103.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3rq7t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gkypq")
+step = 1.0
+value = 70.0
+rounded = true
+show_percentage = false
+
+[node name="HPText" type="Label" parent="HPBar"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 27.0
+text = "cur / max"
+label_settings = SubResource("LabelSettings_ko3e5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MPBar" type="ProgressBar" parent="."]
+offset_left = -75.0
+offset_top = -100.0
+offset_right = 75.0
+offset_bottom = -73.0
+theme_override_styles/background = SubResource("StyleBoxFlat_re6at")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ciu68")
+step = 1.0
+value = 70.0
+rounded = true
+show_percentage = false
+
+[node name="MPText" type="Label" parent="MPBar"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 27.0
+text = "cur / max"
+label_settings = SubResource("LabelSettings_ko3e5")
+horizontal_alignment = 1
+vertical_alignment = 1

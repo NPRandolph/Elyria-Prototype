@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Archetype" load_steps=2 format=3 uid="uid://c2a5tkehamq2n"]
+
+[ext_resource type="Script" path="res://Archetypes/Archetype.gd" id="1_cu3p7"]
+
+[resource]
+script = ExtResource("1_cu3p7")
+name = "Warrior"
+strength = 6
+magic = 2
+focus = 4

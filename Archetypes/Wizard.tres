@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Archetype" load_steps=2 format=3 uid="uid://bidnyhmadge1a"]
+
+[ext_resource type="Script" path="res://Archetypes/Archetype.gd" id="1_gytbp"]
+
+[resource]
+script = ExtResource("1_gytbp")
+name = "Wizard"
+strength = 2
+magic = 6
+focus = 4
